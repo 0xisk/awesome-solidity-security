@@ -3,4 +3,18 @@
 :toclevels: 4 
 
 == Research Papers
+=== Apr, 2020
 1. https://arxiv.org/pdf/1905.01467.pdf[Defining Smart Contract Defects on Ethereum]
+    
+    Abstract—Smart contracts are programs running on a blockchain. They are immutable to change, and hence can not be patched for
+bugs once deployed. Thus it is critical to ensure they are bug-free and well-designed before deployment. A Contract defect is an error,
+flaw or fault in a smart contract that causes it to produce an incorrect or unexpected result, or to behave in unintended ways. The
+detection of contract defects is a method to avoid potential bugs and improve the design of existing code. Since smart contracts contain
+numerous distinctive features, such as the gas system. decentralized, it is important to find smart contract specified defects. To fill this
+gap, we collected smart-contract-related posts from Ethereum StackExchange, as well as real-world smart contracts. We manually
+analyzed these posts and contracts; using them to define 20 kinds of contract defects. We categorized them into indicating potential
+security, availability, performance, maintainability and reusability problems. To validate if practitioners consider these contract as
+harmful, we created an online survey and received 138 responses from 32 different countries. Feedback showed these contract defects
+are harmful and removing them would improve the quality and robustness of smart contracts. We manually identified our defined
+contract defects in 587 real world smart contract and publicly released our dataset. Finally, we summarized 5 impacts caused by
+contract defects. These help developers better understand the symptoms of the defects and removal priority.
