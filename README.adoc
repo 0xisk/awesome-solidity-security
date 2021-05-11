@@ -5,7 +5,6 @@
 == Research Papers
 === Apr, 2020
 1. https://arxiv.org/pdf/1905.01467.pdf[Defining Smart Contract Defects on Ethereum]
-    
     Abstract—Smart contracts are programs running on a blockchain. They are immutable to change, and hence can not be patched for
 bugs once deployed. Thus it is critical to ensure they are bug-free and well-designed before deployment. A Contract defect is an error,
 flaw or fault in a smart contract that causes it to produce an incorrect or unexpected result, or to behave in unintended ways. The
