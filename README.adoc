@@ -17,3 +17,12 @@ harmful, we created an online survey and received 138 responses from 32 differen
 are harmful and removing them would improve the quality and robustness of smart contracts. We manually identified our defined
 contract defects in 587 real world smart contract and publicly released our dataset. Finally, we summarized 5 impacts caused by
 contract defects. These help developers better understand the symptoms of the defects and removal priority.
+
+## Famous Attacks
+### 1. The DAO Attack
+- https://www.coindesk.com/understanding-dao-hack-journalists[Understanding The DAO Attack]
+
+13, 14, 15, 
+
+## Datasets
+1. https://github.com/Jiachi-Chen/TSE-ContractDefects[TSE-ContractDefects]
