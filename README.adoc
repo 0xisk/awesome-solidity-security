@@ -50,6 +50,18 @@ the victim contract cannot reject the Ethers. Therefore, the logic of
 equal balance check will fail to work due to the unexpected ethers
 send by attackers.
 
+=== 4. Unmatched Type Assignment
+- REF: https://arxiv.org/pdf/1905.01467.pdf[Defining Smart Contract Defects on Ethereum]
+
+Solidity supports different
+types of integers (e.g., uint8, uint256). The default type of integer
+is uint256 which supports a range from 0 to 2 ˆ 256. uint8
+takes less memory, but only supports numbers from 0 to 2 ˆ 8.
+Solidity will not throw an exception when a value exceeds its
+maximum value. The progressive increase is a common operation
+in programming, and performing an increment operation without
+checking the maximum value may lead to overflow.
+
 == Famous Attacks
 === 1. The DAO Attack
 - https://www.coindesk.com/understanding-dao-hack-journalists[Understanding The DAO Attack]
