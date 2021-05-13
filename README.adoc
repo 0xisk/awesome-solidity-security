@@ -21,7 +21,7 @@ contract defects. These help developers better understand the symptoms of the de
 == Smart-Contracts Defects 
 (Vulnurabilities & Bugs)
 
-=== (1) Unchecked External Calls:
+=== 1. Unchecked External Calls
 - REF: https://arxiv.org/pdf/1905.01467.pdf[Defining Smart Contract Defects on Ethereum]
 
 To transfer Ethers or call
@@ -32,6 +32,13 @@ When errors happen, these methods will return a boolean value
 (False), but never throw an exception. If callers do not check
 return values of external calls, they cannot ensure whether code
 logic is correct.
+
+=== 2. DoS Under External Influence
+- REF: https://arxiv.org/pdf/1905.01467.pdf[Defining Smart Contract Defects on Ethereum]
+
+When an exception is
+detected, the smart contract will rollback the transaction. However,
+throwing exceptions inside a loop is dangerous.
 
 == Famous Attacks
 === 1. The DAO Attack
