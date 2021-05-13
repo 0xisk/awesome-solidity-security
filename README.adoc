@@ -40,6 +40,16 @@ When an exception is
 detected, the smart contract will rollback the transaction. However,
 throwing exceptions inside a loop is dangerous.
 
+=== 3. Strict Balance Equality
+- REF: https://arxiv.org/pdf/1905.01467.pdf[Defining Smart Contract Defects on Ethereum]
+
+Attackers can send Ethers to
+any contracts forcibly by utilizing selfdestruct(victim address)
+API [5]. This way will not trigger the fallback function, meaning
+the victim contract cannot reject the Ethers. Therefore, the logic of
+equal balance check will fail to work due to the unexpected ethers
+send by attackers.
+
 == Famous Attacks
 === 1. The DAO Attack
 - https://www.coindesk.com/understanding-dao-hack-journalists[Understanding The DAO Attack]
