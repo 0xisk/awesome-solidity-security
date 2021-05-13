@@ -22,7 +22,7 @@ contract defects. These help developers better understand the symptoms of the de
 (Vulnurabilities & Bugs)
 
 === 1. Unchecked External Calls
-- REF: https://arxiv.org/pdf/1905.01467.pdf[Defining Smart Contract Defects on Ethereum]
+- REF: https://arxiv.org/pdf/1905.01467.pdf[Defining Smart Contract Defects on Ethereum, pp 5]
 
 To transfer Ethers or call
 functions of other smart contracts, Solidity provides a series of
@@ -34,14 +34,14 @@ return values of external calls, they cannot ensure whether code
 logic is correct.
 
 === 2. DoS Under External Influence
-- REF: https://arxiv.org/pdf/1905.01467.pdf[Defining Smart Contract Defects on Ethereum]
+- REF: https://arxiv.org/pdf/1905.01467.pdf[Defining Smart Contract Defects on Ethereum, pp 6]
 
 When an exception is
 detected, the smart contract will rollback the transaction. However,
 throwing exceptions inside a loop is dangerous.
 
 === 3. Strict Balance Equality
-- REF: https://arxiv.org/pdf/1905.01467.pdf[Defining Smart Contract Defects on Ethereum]
+- REF: https://arxiv.org/pdf/1905.01467.pdf[Defining Smart Contract Defects on Ethereum, pp 6]
 
 Attackers can send Ethers to
 any contracts forcibly by utilizing selfdestruct(victim address)
@@ -51,7 +51,7 @@ equal balance check will fail to work due to the unexpected ethers
 send by attackers.
 
 === 4. Unmatched Type Assignment
-- REF: https://arxiv.org/pdf/1905.01467.pdf[Defining Smart Contract Defects on Ethereum]
+- REF: https://arxiv.org/pdf/1905.01467.pdf[Defining Smart Contract Defects on Ethereum, pp 6]
 
 Solidity supports different
 types of integers (e.g., uint8, uint256). The default type of integer
@@ -61,6 +61,17 @@ Solidity will not throw an exception when a value exceeds its
 maximum value. The progressive increase is a common operation
 in programming, and performing an increment operation without
 checking the maximum value may lead to overflow.
+
+=== 5. Transaction State Dependency
+- REF: https://arxiv.org/pdf/1905.01467.pdf[Defining Smart Contract Defects on Ethereum, pp 6]
+
+Contracts need to check
+whether the caller has permissions in some functions like suicide
+(L33 in Listing 1). The failure of permission checks can cause
+serious consequences. For example, if someone passes the permission check of suicide function, he/she can destroy the contract
+and stole all the Ethers. tx.origin can get the original address that
+kicked off the transaction, but this method is not reliable since the
+address returned by this method depends on the transaction state.
 
 == Famous Attacks
 === 1. The DAO Attack
