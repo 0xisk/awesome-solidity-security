@@ -2,6 +2,8 @@
 :toc: 
 :toclevels: 4 
 
+The purpose of this repo to list all the related Research Papers focused on Smart-contracts security topics. As well as listing all the encountered smart-contracts defects with a summary description.
+
 == Research Papers
 === Apr, 2020
 1. https://arxiv.org/pdf/1905.01467.pdf[Defining Smart Contract Defects on Ethereum]
