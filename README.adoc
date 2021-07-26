@@ -81,10 +81,10 @@ detected, the smart contract will rollback the transaction. However,
 throwing exceptions inside a loop is dangerous.
 
 ==== Example
-In line 33 of Listing 1, the contract uses transfer
-to send Ethers. However, In Solidity, transfer and send will limit the gas of fallback function in callee contracts to 2,300 gas.
+In `line 33` of Listing 1, the contract uses `transfer`
+to send Ethers. However, In Solidity, `transfer` and `send` will limit the gas of `fallback function` in callee contracts to `2,300 gas`.
 This gas is not enough to write to storage, call functions or send
-Ethers. If one of member[i] is an attacker’s smart contract and the
+Ethers. If one of `member[i]` is an attacker’s smart contract and the
 transfer function (L33) can trigger an out-of-gas exception due
 to the 2,300 gas limitation. Then, the contract state will rollback.
 Since the code cannot be modified, the contract can not remove
