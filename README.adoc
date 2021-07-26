@@ -30,9 +30,7 @@ contract defects. These help developers better understand the symptoms of the de
 ----
 // Choose a member to be the winner
 function getWinner() {
-    /**
-     * Block Info Dependency
-     */
+    /* Block Info Dependency */
      uint winnerID = uint(block.blockhash(block.number)) % participants.length;
      participants[winnerID].send(8 ether);
      participatorID = 0;
