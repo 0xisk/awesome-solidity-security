@@ -46,14 +46,14 @@ When errors happen, these methods will return a boolean value
 return values of external calls, they cannot ensure whether code
 logic is correct.
 
-==== Example:
+==== Example
 An example of this defect is given in Listing 1.
 In function getWinner (L23), the contract does not check the
 return value of send (L26), but the array participants is emptied
 by assigning participatorID to 0 (L25). In this case, if the send
 method failed, the winner will lose 8 Ethers.
 
-=== Possible Solution:
+==== Possible Solution
 Using `address.transfer()` to instead `address.send()` and `address.call.value()` if possible, or Checking the
 return value of send and call.
 
@@ -61,9 +61,41 @@ return value of send and call.
 === 2. DoS Under External Influence
 - REF: https://arxiv.org/pdf/1905.01467.pdf[Defining Smart Contract Defects on Ethereum, pp 6]
 
+[source, solidity]
+----
+// Send 0.1 ETH to all members as bonus
+function giveBonus() returns (bool) {
+    /** Unmatched Type Assignment */
+    for (uint256 i = 0; i < members.length; i++) {
+        if (this.balance > 0.1 ether) {
+            /** DoS Under External Influence */
+            members[i].transfer(0.1 ether);
+        }
+    }
+    /** Missing Return Statement */
+}
+----
+
 When an exception is
 detected, the smart contract will rollback the transaction. However,
 throwing exceptions inside a loop is dangerous.
+
+==== Example
+In line 33 of Listing 1, the contract uses transfer
+to send Ethers. However, In Solidity, transfer and send will limit the gas of fallback function in callee contracts to 2,300 gas.
+This gas is not enough to write to storage, call functions or send
+Ethers. If one of member[i] is an attacker’s smart contract and the
+transfer function (L33) can trigger an out-of-gas exception due
+to the 2,300 gas limitation. Then, the contract state will rollback.
+Since the code cannot be modified, the contract can not remove
+the attacker from members list, which means that if the attacker
+does not stop attacking, no one can get bonus anymore.
+
+==== Possible Solution
+Avoid throwing exceptions in the body of
+a loop. We can return a boolean value instead of throwing an
+exception. For example, using `if(msg.send(...) == false) break;`
+instead of using `msg.transfer(...)`.
 
 === 3. Strict Balance Equality
 - REF: https://arxiv.org/pdf/1905.01467.pdf[Defining Smart Contract Defects on Ethereum, pp 6]
