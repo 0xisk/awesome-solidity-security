@@ -2,9 +2,13 @@
 :toc: 
 :toclevels: 4 
 
-image::https://miro.medium.com/max/382/1*NOQhAyfBvwYyr3DHhzVEgQ.png[Ethereum, align="center"]
-
 The purpose of this repo to list all the related Research Papers focused on Smart-contracts security topics. As well as listing all the encountered smart-contracts defects with a summary description.
+
+++++
+<p align="center">
+  <img width="140" height="180" src="https://miro.medium.com/max/382/1*NOQhAyfBvwYyr3DHhzVEgQ.png">
+</p>
+++++
 
 == Research Papers
 === Apr, 2020
