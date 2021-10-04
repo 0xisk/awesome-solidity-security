@@ -11,6 +11,27 @@ The purpose of this repo to list all the related Research Papers focused on Smar
 ++++
 
 == Research Papers
+=== May, 2021
+1. https://arxiv.org/pdf/2105.02881.pdf[Reentrancy Vulnerability Identification in Ethereum Smart Contracts]
+    Abstract—Ethereum Smart contracts use blockchain to transfer values among peers on networks without central agency.
+These programs are deployed on decentralized applications running on top of the blockchain consensus protocol to enable people
+make agreements in a transparent and conflict free environment.
+The security vulnerabilities within those smart contracts are a
+potential threat to the applications and have caused huge financial
+losses to their users. In this paper, we present a framework
+that combines static and dynamic analysis to detect Reentrancy
+vulnerabilities in Ethereum smart contracts. This framework
+generates an attacker contract based on the ABI specifications of
+smart contracts under test and analyzes the contract interaction
+to precisely report Reentrancy vulnerability. We conducted a
+preliminary evaluation of our proposed framework on 5 modified
+smart contracts from Etherscan and our framework was able to
+detect the Reentrancy vulnerability in all our modified contracts.
+Our framework analyzes smart contracts statically to identify
+potentially vulnerable functions and then uses dynamic analysis
+to precisely confirm Reentrancy vulnerability, thus achieving
+increased performance and reduced false positives.
+
 === Apr, 2020
 1. https://arxiv.org/pdf/1905.01467.pdf[Defining Smart Contract Defects on Ethereum]
     Abstract—Smart contracts are programs running on a blockchain. They are immutable to change, and hence can not be patched for
